@@ -44,13 +44,13 @@ public class Drone : MonoBehaviour
             lastMoveVector = new Vector3(1, 0, 0);
             UpdateWeight();
         }
-        else if (Input.GetKeyDown(KeyCode.Q))
+        else if (Input.GetKeyDown(KeyCode.E))
         {
             transform.position += new Vector3(0, 1, 0);
             lastMoveVector = new Vector3(0, 1, 0);
             UpdateWeight();
         }
-        else if (Input.GetKeyDown(KeyCode.E))
+        else if (Input.GetKeyDown(KeyCode.Q))
         {
             transform.position += new Vector3(0, -1, 0);
             lastMoveVector = new Vector3(0, -1, 0);

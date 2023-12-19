@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -29,24 +30,6 @@ public class CoordinateSystem : MonoBehaviour
         zAxis.position += Vector3.up;
 
         UpdateVectorLists();
-
-        // Debug.Log("[before rotation] X-axis position: " + (xAxis.position - transform.position));
-        // Debug.Log("[before rotation] Y-axis position: " + (yAxis.position - transform.position));
-        // Debug.Log("[before rotation] Z-axis position: " + (zAxis.position - transform.position));
-
-        // RotateCoordinateSystem(0f, 90f, 0f);
-
-        // xAxis.position = origin.position;
-        // yAxis.position = origin.position;
-        // zAxis.position = origin.position;
-
-        // xAxis.position += Vector3.forward;
-        // yAxis.position += Vector3.left;
-        // zAxis.position += Vector3.up;
-
-        // Debug.Log("X-axis position: " + (xAxis.position - transform.position));
-        // Debug.Log("Y-axis position: " + (yAxis.position - transform.position));
-        // Debug.Log("Z-axis position: " + (zAxis.position - transform.position));
     }
 
     void Update()
@@ -98,13 +81,13 @@ public class CoordinateSystem : MonoBehaviour
         Vector3 yAxisV3 = yAxis.position - transform.position;
         Vector3 zAxisV3 = zAxis.position - transform.position;
         // Positive vectors
-        positiveVectorList.Add(xAxisV3);
-        positiveVectorList.Add(yAxisV3);
-        positiveVectorList.Add(zAxisV3);
+        positiveVectorList.Add(Vector3Int.RoundToInt(xAxisV3));
+        positiveVectorList.Add(Vector3Int.RoundToInt(yAxisV3));
+        positiveVectorList.Add(Vector3Int.RoundToInt(zAxisV3));
         // Negative vectors
-        negativeVectorList.Add(xAxisV3 * -1);
-        negativeVectorList.Add(yAxisV3 * -1);
-        negativeVectorList.Add(zAxisV3 * -1);
+        negativeVectorList.Add(Vector3Int.RoundToInt(xAxisV3 * -1));
+        negativeVectorList.Add(Vector3Int.RoundToInt(yAxisV3 * -1));
+        negativeVectorList.Add(Vector3Int.RoundToInt(zAxisV3 * -1));
     }
 
     public int GetWeightValue(Vector3 vect)
